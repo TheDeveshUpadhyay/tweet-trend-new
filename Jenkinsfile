@@ -18,11 +18,11 @@ environment {
         }  
 
 
-         /*stage("Jar Publish") {
+         stage("Jar Publish") {
         steps {
             script {
                     echo '<--------------- Jar Publish Started --------------->'
-                     def server = Artifactory.newServer url:registry+"/artifactory" ,  credentialsId:"artifact-cred"
+                     def server = Artifactory.newServer url:registry+"/artifactory" ,  credentialsId:"artifact-cred-new"
                      def properties = "buildid=${env.BUILD_ID},commitid=${GIT_COMMIT}";
                      def uploadSpec = """{
                           "files": [
@@ -42,7 +42,7 @@ environment {
             
             }
         }   
-    }  */ 
+    }   
 
 
 
