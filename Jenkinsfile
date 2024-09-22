@@ -49,8 +49,6 @@ environment {
         }   
     }
 
-
-  
     stage(" Docker Build ") {
       steps {
         script {
@@ -82,3 +80,5 @@ environment {
     }
  }
 }
+
+
