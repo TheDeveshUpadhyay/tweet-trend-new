@@ -61,16 +61,24 @@ environment {
       }
     }
 
-            stage (" Docker Publish "){
+    stage (" Docker Publish "){
         steps {
             script {
-               echo '<--------------- Docker Publish Started --------------->'  
+                echo '<--------------- Docker Publish Started --------------->'  
                 docker.withRegistry(registry, 'artifact-cred-new'){
-                    app.push()
-                }    
-               echo '<--------------- Docker Publish Ended --------------->'  
+                app.push()
+            }    
+                echo '<--------------- Docker Publish Ended --------------->'  
             }
         }
+    }
+
+    stage(" Deploy ") {
+      steps {
+        script {
+          sh './deploy.sh'
+        }
+      }
     }
  }
 }
